@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碾玉观音·命运的岔路</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C4 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0 10px;
+            border-bottom: 2px solid #8B4513;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #5D2906;
+            margin-bottom: 5px;
+        }
+
+        .chapter-title {
+            font-size: 18px;
+            color: #8B4513;
+            font-weight: bold;
+        }
+
+        .ending-badge {
+            background: #8B4513;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .ending-title {
+            font-size: 22px;
+            color: #8B4513;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .story-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex: 1;
+            margin-bottom: 20px;
+            white-space: pre-line;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .choices-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .choice-btn {
+            background: linear-gradient(135deg, #8B4513 0%, #5D2906 100%);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .choice-btn:active {
+            transform: translateY(0);
+        }
+
+        .choice-label {
+            color: #5D2906;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 2px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B4513, #D4A574);
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .story-content {
+                padding: 20px 15px;
+                font-size: 15px;
+            }
+
+            .choice-btn {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>碾玉观音·命运的岔路</h1>
+            <div class="chapter-title" id="chapterTitle"></div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="endingBadge" class="ending-badge" style="display: none;">结局</div>
+        <div id="endingTitle" class="ending-title" style="display: none;"></div>
+
+        <div class="story-content" id="storyContent"></div>
+
+        <div class="choice-label">你的选择：</div>
+        <div class="choices-container" id="choicesContainer"></div>
+    </div>
+
+    <script>
+        // 游戏数据
+        const storyData = {
+            "opening": {
+                chapterTitle: "开场",
+                content: "南宋绍兴年间，临安府咸安郡王府中。你是碾玉匠崔宁，二十五岁，单身。郡王曾当众许诺，待养娘秀秀满日后便嫁与你为妻。今夜，郡王府突发大火，人人逃散，你在廊下撞见了提着金珠的秀秀。",
+                choices: [
+                    { text: "准备开始", next: "chapter1" }
+                ]
+            },
+            "chapter1": {
+                chapterTitle: "第一章：火灾之夜",
+                content: `火光冲天，浓烟滚滚。你正要从侧门逃出，一个身影从廊下闪出，死死拉住你的衣袖。
+
+是秀秀。她发髻散乱，怀中抱着一个小包裹，眼中却闪着决绝的光。
+
+"崔宁！府里人都跑光了，"她声音颤抖，"你带我去躲避吧！"
+
+你想起郡王的许诺，想起平日里她偷偷塞给你的帕子，心头一热。可转念一想，若带她逃走，便是拐带养娘，被捉住是要受刑的。
+
+秀秀见你犹豫，又上前一步："今夜不做夫妻，更待何时？你若不带我走，我便喊起来，说你强拐我！"`,
+                choices: [
+                    { text: "同意跟她走，连夜逃出临安", next: "chapter2" },
+                    { text: "拒绝她，劝她回府请罪", next: "ending1" },
+                    { text: "让她先走，你随后再到", next: "ending2" }
+                ]
+            },
+            "ending1": {
+                chapterTitle: "结局",
+                endingTitle: "秀秀被罚，你后悔一生",
+                isEnding: true,
+                content: `你摇摇头，低声道："秀秀，我们不能这样。回去吧，向郡王请罪，或许还能从轻发落。"
+
+秀秀瞪大眼睛看着你，眼中光芒渐渐黯淡。她松开了拉着你的手，转身消失在火光中。
+
+次日，郡王得知秀秀欲逃，大怒，将她关入柴房。三日后，秀秀忧郁而终。你听闻噩耗，心痛如绞，却不敢言语。
+
+后来你娶了别人，但每逢火雨之夜，总会梦见秀秀那双失望的眼睛。这一生，你终究负了她，也负了自己。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "ending2": {
+                chapterTitle: "结局",
+                endingTitle: "失散后各自婚嫁",
+                isEnding: true,
+                content: `你犹豫片刻，道："秀秀，你先走，我随后就到。"
+
+秀秀深深看了你一眼，转身消失在夜色中。然而这一别，便是永诀。
+
+战火纷飞，你与她失散。后来听说她投奔了远方亲戚，嫁给了一个小商人，过着平淡安稳的日子。
+
+而你，在临安继续做碾玉匠，娶妻生子。只是每当有人提起"秀秀"这个名字，你心头总会一紧，想起那个火光冲天的夜晚，和你未曾抓住的缘分。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "chapter2": {
+                chapterTitle: "第二章：潭州生活",
+                content: `你们星夜兼程，逃至潭州（今长沙）。用秀秀带出的金珠做本，开了一家碾玉铺。
+
+一年光阴转瞬即逝。你与秀秀恩爱非常，日子虽不富贵，却也安稳。她整日在家刺绣，你在铺子里做工，邻里和睦，人人都羡煞这对神仙眷侣。
+
+这日午后，你在铺子里碾玉，门帘一挑，走进一个穿军装的男人。你抬头一看，心头一紧——是郭排军！郡王府的士兵！
+
+他也认出了你，先是一愣，随即露出意味深长的笑容。`,
+                choices: [
+                    { text: "请他喝酒，求他保密", next: "chapter3" },
+                    { text: "杀他灭口", next: "ending3" },
+                    { text: "主动搬家去成都", next: "ending4" },
+                    { text: "贿赂他", next: "ending5" }
+                ]
+            },
+            "ending3": {
+                chapterTitle: "结局",
+                endingTitle: "逃亡深山，终老",
+                isEnding: true,
+                content: `你心一横，当晚趁郭排军醉酒，与秀秀合力将他勒死，埋尸野外。
+
+然而纸包不住火。次日官府接到报案，全城搜捕杀人凶手。你与秀秀连夜逃亡，一路向西，躲进深山之中。
+
+山中无岁月，你们隐居在一处山洞，靠打猎采药为生。昔日碾玉巧手，如今只能用来削制木器。秀秀的手渐渐粗糙，你的鬓角早早斑白。
+
+就这样担惊受怕一辈子，偶尔夜半惊醒，总听见那冤魂在耳边低语。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "ending4": {
+                chapterTitle: "结局",
+                endingTitle: "平安到老",
+                isEnding: true,
+                content: `你当机立断，对秀秀说："此地不可久留，我们立刻走！"
+
+当夜，你们收拾细软，连夜离开潭州，一路西行去了成都。成都繁华，没人知道你们的过往。
+
+你们改换姓名，重新开了一家碾玉铺。秀秀的绣品精美绝伦，你的玉器巧夺天工，生意兴隆。
+
+数年过去，郡王始终未能找到你们，此事不了了之。你与秀秀相守到老，膝下儿女双全，子孙满堂。临终前，你握着秀秀的手，含笑而逝。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "ending5": {
+                chapterTitle: "结局",
+                endingTitle: "破财免灾，清苦度日",
+                isEnding: true,
+                content: `你赔上笑脸，将郭排军请进内堂，拿出全部积蓄，整整五十两银子，塞到他手中。
+
+"郭大哥，此事还请通融。"
+
+郭排军掂了掂银子，满意地点头："今日我从未到过潭州。"
+
+他走后，你与秀秀才松了一口气。然而家财散尽，铺子难以为继，你们只得搬到城郊，租了间茅屋度日。
+
+虽然清苦，却也算平安。秀秀从未抱怨，每日为你缝补衣裳。你常想，若能重来，还是会选这条路——只要与她在一起，清贫又有何妨？`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "chapter3": {
+                chapterTitle: "第三章：被捉回临安",
+                content: `郭排军喝了酒，满口答应保密。然而回府之后，他立刻向郡王禀告。
+
+郡王大怒，立刻派人前来捉拿。你与秀秀无力反抗，被锁回临安。
+
+公堂之上，郡王拍案而起："好一对狗男女！竟敢拐带养娘，私奔出逃！来人，拖下去打死！"
+
+夫人连忙劝阻："大王，这是京城，不可私自杀人。"
+
+郡王思索片刻，喝道："将秀秀打入后花园，杖责三十！崔宁发配建康，即日押送！"
+
+秀秀被拖走时，回头看了你一眼，那眼神让你心如刀割。
+
+你被杖打三十，鲜血淋漓，随后被押送出城。刚出北关门，身后忽然传来熟悉的声音："崔宁，等等我！"
+
+你回头一看，竟是秀秀！她扶着轿子，脸色苍白，却依然对你微笑。`,
+                choices: [
+                    { text: "接受她是鬼，继续做夫妻", next: "chapter4" },
+                    { text: "请道士驱鬼", next: "ending6" },
+                    { text: "主动自杀殉情", next: "ending7" }
+                ]
+            },
+            "ending6": {
+                chapterTitle: "结局",
+                endingTitle: "阴阳两隔，孤独终老",
+                isEnding: true,
+                content: `你脸色煞白，连连后退："你...你是人是鬼？别过来！"
+
+秀秀眼中含泪："崔宁，我是你的妻子啊！"
+
+你不敢多言，当夜便寻了一位道士。道士设坛作法，秀秀的鬼魂在门外哭了一夜，终究被符咒逼退。
+
+你被押至建康，孤身一人度过余生。每当夜深人静，总能听见窗外有女子低语。你终身未娶，晚年常梦见秀秀，醒来时枕巾已湿。
+
+临终前，你喃喃道："秀秀，我来赔你了..."`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "ending7": {
+                chapterTitle: "结局",
+                endingTitle: "死后阴间团聚，来世重逢",
+                isEnding: true,
+                content: `你看着秀秀苍白的面容，忽然明白了一切。若她已死，你独活于世又有何意义？
+
+"秀秀，"你轻声说，"此生负你，来世再还。"
+
+说罢，你一头撞向路边的石碑，鲜血迸溅。押送的官差大惊失色，慌忙来救，却已来不及。
+
+你的魂魄飘起，看见秀秀含笑而来，牵起你的手。两人携手走向阴间，阎王感其情真，判二人来世重逢为人。
+
+临安城中，后来得人传说：那对苦命的鸳鸯，终究是在一起了。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "chapter4": {
+                chapterTitle: "第四章：鬼妻",
+                content: `你又惊又喜："秀秀，你怎的逃出来了？"
+
+秀秀轻抚你的脸："我被打了几十竹篦，赶出府来。我知道你要去建康，特来跟你一起走。"
+
+你们到了建康，租了间屋子住下。奇怪的是，秀秀白日里闭门不出，只在夜间活动。你只当她受了伤，不便见人，并未多想。
+
+数月后，皇帝观赏玉观音时弄坏了铃子，发现是你所造，便召你入京修好，并赏你留在临安居住。
+
+你在清湖河下又开了铺子，接来秀秀同住。
+
+一日，郭排军路过，看见秀秀，大惊失色，回报郡王。郡王不信："秀秀已被我打死，埋在后花园！"
+
+郭排军立下军令状，带人前来取秀秀。秀秀从容梳洗，上了轿。然而到郡王府门口，掀开轿帘——里面空空如也，秀秀不见了。
+
+你回到家中，见秀秀坐在床上，面色惨白如纸。`,
+                choices: [
+                    { text: "跟她走", next: "ending8" },
+                    { text: "逃跑", next: "ending9" }
+                ]
+            },
+            "ending8": {
+                chapterTitle: "结局",
+                endingTitle: "同死做鬼夫妻",
+                isEnding: true,
+                content: `秀秀看着你，眼中含泪："崔宁，我是鬼，郭排军已遭报应。但我阳寿未尽，容身不得。你可愿随我去？"
+
+你握住她的手，触手冰凉。你点点头："生不能同衾，死亦同穴。"
+
+秀秀双手轻轻掐住你的脖子，并不用力，你却感到一阵困意袭来。你安然闭上双眼，随她而去。
+
+后来有人传说，有人在夜间见过一对男女，携手走过清湖河畔，有说有笑，宛如生前。
+
+郡王得知此事，大病一场，不久也死了。阎王殿上，判官判郡王下地狱，而你与秀秀，双双投胎为人，来世再做夫妻。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            },
+            "ending9": {
+                chapterTitle: "结局",
+                endingTitle: "被秀秀追上索命，同样死亡",
+                isEnding: true,
+                content: `你大惊失色，转身就跑。秀秀在你身后幽幽道："崔宁，你负了我..."
+
+你一路狂奔，逃到郊外。回头一看，秀秀竟飘在你身后，脸色越来越白，双眼赤红。
+
+"你说过要和我做一辈子夫妻的..."她的声音凄厉，伸手抓住了你的胳膊。
+
+你感到一阵刺骨寒意从胳膊蔓延全身，眼前渐渐发黑。次日，有人在河边发现了你的尸体，面容惊恐，似见到了什么可怕的东西。
+
+而秀秀的鬼魂，自此消散于天地之间，再无人见过。`,
+                choices: [
+                    { text: "重新开始", next: "opening" }
+                ]
+            }
+        };
+
+        // 节点路径用于进度计算
+        const nodePath = {
+            "opening": 1,
+            "chapter1": 2,
+            "ending1": 11,
+            "ending2": 11,
+            "chapter2": 3,
+            "ending3": 11,
+            "ending4": 11,
+            "ending5": 11,
+            "chapter3": 4,
+            "ending6": 11,
+            "ending7": 11,
+            "chapter4": 5,
+            "ending8": 11,
+            "ending9": 11
+        };
+
+        let currentNode = "opening";
+
+        function render(nodeId) {
+            const node = storyData[nodeId];
+            if (!node) return;
+
+            currentNode = nodeId;
+
+            // 更新章节标题
+            document.getElementById("chapterTitle").textContent = node.chapterTitle;
+
+            // 更新结局相关显示
+            const endingBadge = document.getElementById("endingBadge");
+            const endingTitle = document.getElementById("endingTitle");
+
+            if (node.isEnding) {
+                endingBadge.style.display = "inline-block";
+                endingTitle.style.display = "block";
+                endingTitle.textContent = "· " + node.endingTitle + " ·";
+            } else {
+                endingBadge.style.display = "none";
+                endingTitle.style.display = "none";
+            }
+
+            // 更新故事内容
+            document.getElementById("storyContent").textContent = node.content;
+
+            // 更新选项按钮
+            const choicesContainer = document.getElementById("choicesContainer");
+            choicesContainer.innerHTML = "";
+
+            node.choices.forEach(choice => {
+                const button = document.createElement("button");
+                button.className = "choice-btn";
+                button.textContent = choice.text;
+                button.onclick = () => render(choice.next);
+                choicesContainer.appendChild(button);
+            });
+
+            // 更新进度条
+            const progress = (nodePath[nodeId] || 1) / 11 * 100;
+            document.getElementById("progressFill").style.width = progress + "%";
+
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 初始化游戏
+        render("opening");
+    </script>
+</body>
+</html>
