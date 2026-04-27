@@ -5,148 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>碾玉观音·命运的岔路</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C4 100%);
-            min-height: 100vh;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            text-align: center;
-            padding: 20px 0 10px;
-            border-bottom: 2px solid #8B4513;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            color: #5D2906;
-            margin-bottom: 5px;
-        }
-
-        .chapter-title {
-            font-size: 18px;
-            color: #8B4513;
-            font-weight: bold;
-        }
-
-        .ending-badge {
-            background: #8B4513;
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .ending-title {
-            font-size: 22px;
-            color: #8B4513;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .story-content {
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            flex: 1;
-            margin-bottom: 20px;
-            white-space: pre-line;
-            font-size: 16px;
-            line-height: 2;
-        }
-
-        .choices-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .choice-btn {
-            background: linear-gradient(135deg, #8B4513 0%, #5D2906 100%);
-            color: #fff;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 10px;
-            font-size: 15px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: left;
-            font-weight: 500;
-            line-height: 1.5;
-        }
-
-        .choice-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-        }
-
-        .choice-btn:active {
-            transform: translateY(0);
-        }
-
-        .choice-label {
-            color: #5D2906;
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: rgba(139, 69, 19, 0.2);
-            border-radius: 2px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #8B4513, #D4A574);
-            transition: width 0.3s ease;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header h1 {
-                font-size: 20px;
-            }
-
-            .story-content {
-                padding: 20px 15px;
-                font-size: 15px;
-            }
-
-            .choice-btn {
-                font-size: 14px;
-                padding: 12px 15px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Microsoft YaHei", "SimSun"; background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C4 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 15px; min-height: 100vh; display: flex; flex-direction: column; }
+        .header { text-align: center; padding: 15px 0 10px; border-bottom: 2px solid #8B4513; margin-bottom: 15px; }
+        .header h1 { font-size: 22px; color: #5D2906; margin-bottom: 5px; }
+        .chapter-title { font-size: 16px; color: #8B4513; font-weight: bold; }
+        .ending-badge { background: #8B4513; color: #fff; padding: 6px 16px; border-radius: 16px; display: inline-block; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
+        .ending-title { font-size: 20px; color: #8B4513; font-weight: bold; text-align: center; margin-bottom: 15px; }
+        .story-content { background: #fff; padding: 18px; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.1); flex: 1; margin-bottom: 15px; white-space: pre-line; font-size: 15px; line-height: 1.8; }
+        .choices-container { display: flex; flex-direction: column; gap: 8px; }
+        .choice-btn { background: linear-gradient(135deg, #8B4513 0%, #5D2906 100%); color: #fff; border: none; padding: 12px 18px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; text-align: left; font-weight: 500; line-height: 1.4; }
+        .choice-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4); }
+        .choice-btn:active { transform: translateY(0); }
+        .choice-label { color: #5D2906; font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+        .progress-bar { height: 3px; background: rgba(139, 69, 19, 0.2); border-radius: 2px; margin-bottom: 15px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #8B4513, #D4A574); transition: width 0.3s ease; }
     </style>
 </head>
 <body>
@@ -155,322 +29,151 @@
             <h1>碾玉观音·命运的岔路</h1>
             <div class="chapter-title" id="chapterTitle"></div>
         </div>
-
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
         <div id="endingBadge" class="ending-badge" style="display: none;">结局</div>
         <div id="endingTitle" class="ending-title" style="display: none;"></div>
-
         <div class="story-content" id="storyContent"></div>
-
         <div class="choice-label">你的选择：</div>
         <div class="choices-container" id="choicesContainer"></div>
     </div>
-
     <script>
-        // 游戏数据
-        const storyData = {
-            "opening": {
-                chapterTitle: "开场",
-                content: "南宋绍兴年间，临安府咸安郡王府中。你是碾玉匠崔宁，二十五岁，单身。郡王曾当众许诺，待养娘秀秀满日后便嫁与你为妻。今夜，郡王府突发大火，人人逃散，你在廊下撞见了提着金珠的秀秀。",
-                choices: [
-                    { text: "准备开始", next: "chapter1" }
-                ]
-            },
-            "chapter1": {
-                chapterTitle: "第一章：火灾之夜",
-                content: `火光冲天，浓烟滚滚。你正要从侧门逃出，一个身影从廊下闪出，死死拉住你的衣袖。
-
-是秀秀。她发髻散乱，怀中抱着一个小包裹，眼中却闪着决绝的光。
-
-"崔宁！府里人都跑光了，"她声音颤抖，"你带我去躲避吧！"
-
-你想起郡王的许诺，想起平日里她偷偷塞给你的帕子，心头一热。可转念一想，若带她逃走，便是拐带养娘，被捉住是要受刑的。
-
-秀秀见你犹豫，又上前一步："今夜不做夫妻，更待何时？你若不带我走，我便喊起来，说你强拐我！"`,
-                choices: [
-                    { text: "同意跟她走，连夜逃出临安", next: "chapter2" },
-                    { text: "拒绝她，劝她回府请罪", next: "ending1" },
-                    { text: "让她先走，你随后再到", next: "ending2" }
-                ]
-            },
-            "ending1": {
-                chapterTitle: "结局",
-                endingTitle: "秀秀被罚，你后悔一生",
-                isEnding: true,
-                content: `你摇摇头，低声道："秀秀，我们不能这样。回去吧，向郡王请罪，或许还能从轻发落。"
-
-秀秀瞪大眼睛看着你，眼中光芒渐渐黯淡。她松开了拉着你的手，转身消失在火光中。
-
-次日，郡王得知秀秀欲逃，大怒，将她关入柴房。三日后，秀秀忧郁而终。你听闻噩耗，心痛如绞，却不敢言语。
-
-后来你娶了别人，但每逢火雨之夜，总会梦见秀秀那双失望的眼睛。这一生，你终究负了她，也负了自己。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "ending2": {
-                chapterTitle: "结局",
-                endingTitle: "失散后各自婚嫁",
-                isEnding: true,
-                content: `你犹豫片刻，道："秀秀，你先走，我随后就到。"
-
-秀秀深深看了你一眼，转身消失在夜色中。然而这一别，便是永诀。
-
-战火纷飞，你与她失散。后来听说她投奔了远方亲戚，嫁给了一个小商人，过着平淡安稳的日子。
-
-而你，在临安继续做碾玉匠，娶妻生子。只是每当有人提起"秀秀"这个名字，你心头总会一紧，想起那个火光冲天的夜晚，和你未曾抓住的缘分。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "chapter2": {
-                chapterTitle: "第二章：潭州生活",
-                content: `你们星夜兼程，逃至潭州（今长沙）。用秀秀带出的金珠做本，开了一家碾玉铺。
-
-一年光阴转瞬即逝。你与秀秀恩爱非常，日子虽不富贵，却也安稳。她整日在家刺绣，你在铺子里做工，邻里和睦，人人都羡煞这对神仙眷侣。
-
-这日午后，你在铺子里碾玉，门帘一挑，走进一个穿军装的男人。你抬头一看，心头一紧——是郭排军！郡王府的士兵！
-
-他也认出了你，先是一愣，随即露出意味深长的笑容。`,
-                choices: [
-                    { text: "请他喝酒，求他保密", next: "chapter3" },
-                    { text: "杀他灭口", next: "ending3" },
-                    { text: "主动搬家去成都", next: "ending4" },
-                    { text: "贿赂他", next: "ending5" }
-                ]
-            },
-            "ending3": {
-                chapterTitle: "结局",
-                endingTitle: "逃亡深山，终老",
-                isEnding: true,
-                content: `你心一横，当晚趁郭排军醉酒，与秀秀合力将他勒死，埋尸野外。
-
-然而纸包不住火。次日官府接到报案，全城搜捕杀人凶手。你与秀秀连夜逃亡，一路向西，躲进深山之中。
-
-山中无岁月，你们隐居在一处山洞，靠打猎采药为生。昔日碾玉巧手，如今只能用来削制木器。秀秀的手渐渐粗糙，你的鬓角早早斑白。
-
-就这样担惊受怕一辈子，偶尔夜半惊醒，总听见那冤魂在耳边低语。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "ending4": {
-                chapterTitle: "结局",
-                endingTitle: "平安到老",
-                isEnding: true,
-                content: `你当机立断，对秀秀说："此地不可久留，我们立刻走！"
-
-当夜，你们收拾细软，连夜离开潭州，一路西行去了成都。成都繁华，没人知道你们的过往。
-
-你们改换姓名，重新开了一家碾玉铺。秀秀的绣品精美绝伦，你的玉器巧夺天工，生意兴隆。
-
-数年过去，郡王始终未能找到你们，此事不了了之。你与秀秀相守到老，膝下儿女双全，子孙满堂。临终前，你握着秀秀的手，含笑而逝。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "ending5": {
-                chapterTitle: "结局",
-                endingTitle: "破财免灾，清苦度日",
-                isEnding: true,
-                content: `你赔上笑脸，将郭排军请进内堂，拿出全部积蓄，整整五十两银子，塞到他手中。
+const storyData = {
+"opening": { chapterTitle: "开场", content: "南宋绍兴年间，临安府繁华富庶。\n\n咸安郡王春日游湖归来，轿过车桥，在裱褙铺门口看见一个少女，生得云鬓轻笼蝉翼，蛾眉淡拂春山。\n\n郡王一见倾心，花了一百二十贯钱，将少女买回府中，取名「秀秀养娘」。秀秀年方十八，做得一手好绣作。\n\n府中玉作里有个碾玉匠人叫崔宁，二十五岁，单身。郡王曾在月台上当众许诺：「待秀秀满日，把来嫁与你。」崔宁拜谢，秀秀在帘后听得，心中暗自欢喜。\n\n谁料天有不测风云。一年春天，郡王府突发大火，众人四散逃命。你在廊下撞见了提着金珠的秀秀。", choices: [{ text: "开始游戏", next: "chapter1" }] },
 
-"郭大哥，此事还请通融。"
+"chapter1": { chapterTitle: "第一章 · 火灾之夜", content: "火光照得如同白日。一个妇女摇摇摆摆从府堂里出来，与你打个胸厮撞。\n\n你认得是秀秀养娘，倒退两步，低身唱个喏。\n\n秀秀道：「崔大夫，我出来得迟了。府中养娘各自四散，管顾不得，你如今没奈何只得将我去躲避则个。」\n\n你带秀秀出府门，沿着河走到石灰桥。秀秀道：「崔大夫，我脚疼了走不得。」\n\n你指着前面道：「更行几步，那里便是崔宁住处，小娘子到家中歇脚，却也不妨。」\n\n到得家中坐定。秀秀道：「我肚里饥，崔大夫与我买些点心来吃！我受了些惊，得杯酒吃更好。」\n\n当时你买将酒来，三杯两盏，正是：三杯竹叶穿心过，两朵桃花上脸来。\n\n秀秀道：「你记得当时在月台上赏月，把我许你，你兀自拜谢。你记得也不记得？」\n\n你叉着手，只应得「喏。」\n\n秀秀道：「当日众人都替你喝采，『好对夫妻！』你怎地到忘了？」\n\n秀秀道：「比似只管等待，何不今夜我和你先做夫妻？不知你意下何如？」\n\n你慌忙道：「岂敢。」\n\n秀秀脸色一变，道：「你知道不敢！我叫将起来，教坏了你，你却如何将我到家中？我明日府里去说！」\n\n你道：「告小娘子，要和崔宁做夫妻不妨；只一件，这里住不得了。要好趁这个遗漏人乱时，今夜就走开去，方才使得。」", choices: [{ text: "依秀秀之意，当夜做夫妻，随即逃走", next: "main_route_1" }, { text: "坚持拒绝，任凭秀秀喊叫", next: "branch_a_1" }, { text: "假意应承，待秀秀睡熟后独自逃走", next: "branch_b_1" }] },
 
-郭排军掂了掂银子，满意地点头："今日我从未到过潭州。"
+"branch_a_1": { chapterTitle: "支线一 · 决绝（第一回合）", content: "你正色道：「小娘子，你若喊叫，我二人俱死。不如你回府去，只说未曾见我。待日后机缘成熟，再做打算。」\n\n秀秀瞪大眼睛看着你，眼中光芒寸寸碎裂，泪水涌了出来。她咬了咬嘴唇，终究没有再说话，转身夺门而去。\n\n那一夜，你在屋中坐了一宿，听着更鼓声声，心中空落落的。\n\n第二日，秀秀回府，向郡王哭诉崔宁图谋不轨。郡王大怒，着人将你捉去，重打四十棍，逐出临安，永不得入城。\n\n你拖着伤体，流落苏州，幸得一家绸缎庄老板收留，将女儿许配于你。你入赘为婿，日子倒也安稳，只是每逢月夜，总会想起那双含泪的眼睛。", choices: [{ text: "十年后，携妻女回乡扫墓", next: "branch_a_2" }] },
 
-他走后，你与秀秀才松了一口气。然而家财散尽，铺子难以为继，你们只得搬到城郊，租了间茅屋度日。
+"branch_a_2": { chapterTitle: "支线一 · 决绝（第二回合）", content: "十年光阴转瞬即逝。你携妻女回乡扫墓，途经城外乱葬岗，偶听村民闲谈，得知秀秀的消息。\n\n原来当年秀秀回府后，郡王得知她曾与你在外过夜，虽未深究，却从此冷落了她。秀秀整日以泪洗面，一年后郁郁而终。\n\n你站在秀秀坟前，荒草萋萋，墓碑斑驳。妻子在身后轻声唤你，你却恍若未闻。\n\n十年相思，一朝得知，却是阴阳永隔。", choices: [{ text: "在坟前烧纸痛哭，从此疏远妻子，终身不纳妾", next: "ending_1" }, { text: "掘坟开棺，见秀秀尸身不腐，当夜绝食而死", next: "ending_2" }] },
 
-虽然清苦，却也算平安。秀秀从未抱怨，每日为你缝补衣裳。你常想，若能重来，还是会选这条路——只要与她在一起，清贫又有何妨？`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "chapter3": {
-                chapterTitle: "第三章：被捉回临安",
-                content: `郭排军喝了酒，满口答应保密。然而回府之后，他立刻向郡王禀告。
+"ending_1": { chapterTitle: "结局", endingTitle: "【长恨绵绵】", isEnding: true, content: "你在坟前烧纸痛哭，泪如雨下，额头磕在石碑上，渗出血来。\n\n妻子在远处看着，默默转身离去。她明白，这个男人虽然娶了她，心却永远留在了这座孤坟里。\n\n自此你终身不纳妾，每至清明必来祭奠。你拼命做工，将家业做得极大，却从未真正笑过。\n\n十年后，你郁郁而终。临终前，你喃喃道：「秀秀，我来赔你了...」\n\n家人将你葬在秀秀坟旁，两座孤坟，相伴百年。", choices: [{ text: "重新开始", next: "opening" }] },
 
-郡王大怒，立刻派人前来捉拿。你与秀秀无力反抗，被锁回临安。
+"ending_2": { chapterTitle: "结局", endingTitle: "【痴情相随】", isEnding: true, content: "你掘坟开棺，见秀秀尸身不腐，面容如生。\n\n你抚尸痛哭，不能自已。当夜你回到家中，写下绝笔书，交代后事，自此绝食。\n\n第七日，你气绝身亡。家人遵你遗愿，将你与秀秀同葬一穴。\n\n下葬那日，天降大雨，送葬的人都说：这是秀秀在哭呢。\n\n临安城中，后人传说：那对苦命的鸳鸯，终究是在一起了。", choices: [{ text: "重新开始", next: "opening" }] },
 
-公堂之上，郡王拍案而起："好一对狗男女！竟敢拐带养娘，私奔出逃！来人，拖下去打死！"
+"branch_b_1": { chapterTitle: "支线二 · 懦夫（第一回合）", content: "你心中挣扎，面上却堆起笑容：「小娘子说的是。只是今日太过仓促，待我收拾一番，明日咱们从长计议。」\n\n秀秀信了你，与你继续对饮。三杯两盏过后，秀秀醉倒，伏在桌上沉沉睡去。\n\n你看着秀秀泛红的睡颜，心中五味杂陈，终究还是狠下心来。你连夜收拾细软，带了些散碎银子，趁天还未亮，独自逃往镇江。\n\n天明后，秀秀醒来，不见你的踪影，只看到桌上留的一封书信。她捏着信纸，指尖泛白，泪水滴落在纸上。\n\n秀秀回府后，郡王得知此事，嘲笑她自作多情。秀秀羞愤难当，当夜投井自尽，年仅十八岁。", choices: [{ text: "在镇江隐姓埋名，开玉器铺", next: "branch_b_2" }] },
 
-夫人连忙劝阻："大王，这是京城，不可私自杀人。"
+"branch_b_2": { chapterTitle: "支线二 · 懦夫（第二回合）", content: "你在镇江开了一家小玉器铺，靠着祖传的手艺，日子渐渐有了起色。\n\n十年过去，你娶妻生子，铺子也扩大了几倍。可每至深夜，你总会从噩梦中惊醒，梦见秀秀站在井边，幽幽地望着你。\n\n这日，你在茶馆偶遇一位当年郡王府的旧人。旧人不知你的身份，闲聊间提起：「听说当年府里有个养娘叫秀秀，被个负心汉骗了，投井死了，真是可怜。」\n\n你手中茶碗「啪」地落地，摔得粉碎。邻桌客人纷纷侧目，你却浑然不觉，浑身颤抖。", choices: [{ text: "散尽家财，在秀秀投井处建庵堂，日夜诵经超度", next: "ending_3" }, { text: "伪装成道士混入郡王府，欲杀郡王为秀秀报仇", next: "ending_4" }] },
 
-郡王思索片刻，喝道："将秀秀打入后花园，杖责三十！崔宁发配建康，即日押送！"
+"ending_3": { chapterTitle: "结局", endingTitle: "【青灯古佛】", isEnding: true, content: "你散尽家财，在秀秀投井处建了一座庵堂，请了高僧住持。\n\n你每日清晨即起，焚香诵经，为秀秀超度。青灯古佛旁，你一坐便是三十年。\n\n三十年后的一个清晨，你圆寂前喃喃道：「秀秀，你可原谅我了？」\n\n后人评：知错能改，善莫大焉。", choices: [{ text: "重新开始", next: "opening" }] },
 
-秀秀被拖走时，回头看了你一眼，那眼神让你心如刀割。
+"ending_4": { chapterTitle: "结局", endingTitle: "【壮士断头】", isEnding: true, content: "你变卖家产，买通道士，以做醮为由混入郡王府，袖藏匕首，欲杀郡王为秀秀报仇。\n\n然而事机不密，被王府侍卫擒获。\n\n公堂之上，郡王冷笑：「崔待诏，你也有今日。」\n\n你慷慨陈词：「郡王逼人致死，罪该万死！」\n\n你被判处斩刑。法场之上，你含笑就斩，口中念念有词：「秀秀，我来赔你了...」", choices: [{ text: "重新开始", next: "opening" }] },
 
-你被杖打三十，鲜血淋漓，随后被押送出城。刚出北关门，身后忽然传来熟悉的声音："崔宁，等等我！"
+"main_route_1": { chapterTitle: "主线 · 南行路", content: "你道：「告小娘子，要和崔宁做夫妻不妨；只一件，这里住不得了。要好趁这个遗漏人乱时，今夜就走开去，方才使得。」\n\n秀秀道：「我既和你做夫妻，凭你行。」\n\n当夜做了夫妻。\n\n四更已后，各带着随身金银物件出门。一路饥餐渴饮，夜住晓行，迤逦来到潭州。\n\n就潭州市里讨间房屋，出面招牌，写着「行在崔待诏碾玉生活」。\n\n你便对秀秀道：「这里离行在有二千馀里了，料得无事，你我安心，好做长久夫妻。」\n\n时光似箭，日月如梭，也有一年之上。", choices: [{ text: "继续开门迎客", next: "main_secret_1" }, { text: "收拾细软，连夜前往成都", next: "branch_d_1" }, { text: "关张歇业，低调度日", next: "main_secret_1b" }] },
 
-你回头一看，竟是秀秀！她扶着轿子，脸色苍白，却依然对你微笑。`,
-                choices: [
-                    { text: "接受她是鬼，继续做夫妻", next: "chapter4" },
-                    { text: "请道士驱鬼", next: "ending6" },
-                    { text: "主动自杀殉情", next: "ending7" }
-                ]
-            },
-            "ending6": {
-                chapterTitle: "结局",
-                endingTitle: "阴阳两隔，孤独终老",
-                isEnding: true,
-                content: `你脸色煞白，连连后退："你...你是人是鬼？别过来！"
-
-秀秀眼中含泪："崔宁，我是你的妻子啊！"
-
-你不敢多言，当夜便寻了一位道士。道士设坛作法，秀秀的鬼魂在门外哭了一夜，终究被符咒逼退。
-
-你被押至建康，孤身一人度过余生。每当夜深人静，总能听见窗外有女子低语。你终身未娶，晚年常梦见秀秀，醒来时枕巾已湿。
-
-临终前，你喃喃道："秀秀，我来赔你了..."`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "ending7": {
-                chapterTitle: "结局",
-                endingTitle: "死后阴间团聚，来世重逢",
-                isEnding: true,
-                content: `你看着秀秀苍白的面容，忽然明白了一切。若她已死，你独活于世又有何意义？
-
-"秀秀，"你轻声说，"此生负你，来世再还。"
-
-说罢，你一头撞向路边的石碑，鲜血迸溅。押送的官差大惊失色，慌忙来救，却已来不及。
-
-你的魂魄飘起，看见秀秀含笑而来，牵起你的手。两人携手走向阴间，阎王感其情真，判二人来世重逢为人。
-
-临安城中，后来得人传说：那对苦命的鸳鸯，终究是在一起了。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "chapter4": {
-                chapterTitle: "第四章：鬼妻",
-                content: `你又惊又喜："秀秀，你怎的逃出来了？"
-
-秀秀轻抚你的脸："我被打了几十竹篦，赶出府来。我知道你要去建康，特来跟你一起走。"
-
-你们到了建康，租了间屋子住下。奇怪的是，秀秀白日里闭门不出，只在夜间活动。你只当她受了伤，不便见人，并未多想。
-
-数月后，皇帝观赏玉观音时弄坏了铃子，发现是你所造，便召你入京修好，并赏你留在临安居住。
-
-你在清湖河下又开了铺子，接来秀秀同住。
-
-一日，郭排军路过，看见秀秀，大惊失色，回报郡王。郡王不信："秀秀已被我打死，埋在后花园！"
-
-郭排军立下军令状，带人前来取秀秀。秀秀从容梳洗，上了轿。然而到郡王府门口，掀开轿帘——里面空空如也，秀秀不见了。
-
-你回到家中，见秀秀坐在床上，面色惨白如纸。`,
-                choices: [
-                    { text: "跟她走", next: "ending8" },
-                    { text: "逃跑", next: "ending9" }
-                ]
-            },
-            "ending8": {
-                chapterTitle: "结局",
-                endingTitle: "同死做鬼夫妻",
-                isEnding: true,
-                content: `秀秀看着你，眼中含泪："崔宁，我是鬼，郭排军已遭报应。但我阳寿未尽，容身不得。你可愿随我去？"
-
-你握住她的手，触手冰凉。你点点头："生不能同衾，死亦同穴。"
-
-秀秀双手轻轻掐住你的脖子，并不用力，你却感到一阵困意袭来。你安然闭上双眼，随她而去。
-
-后来有人传说，有人在夜间见过一对男女，携手走过清湖河畔，有说有笑，宛如生前。
-
-郡王得知此事，大病一场，不久也死了。阎王殿上，判官判郡王下地狱，而你与秀秀，双双投胎为人，来世再做夫妻。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            },
-            "ending9": {
-                chapterTitle: "结局",
-                endingTitle: "被秀秀追上索命，同样死亡",
-                isEnding: true,
-                content: `你大惊失色，转身就跑。秀秀在你身后幽幽道："崔宁，你负了我..."
-
-你一路狂奔，逃到郊外。回头一看，秀秀竟飘在你身后，脸色越来越白，双眼赤红。
-
-"你说过要和我做一辈子夫妻的..."她的声音凄厉，伸手抓住了你的胳膊。
-
-你感到一阵刺骨寒意从胳膊蔓延全身，眼前渐渐发黑。次日，有人在河边发现了你的尸体，面容惊恐，似见到了什么可怕的东西。
-
-而秀秀的鬼魂，自此消散于天地之间，再无人见过。`,
-                choices: [
-                    { text: "重新开始", next: "opening" }
-                ]
-            }
-        };
-
-        // 节点路径用于进度计算
-        const nodePath = {
-            "opening": 1,
-            "chapter1": 2,
-            "ending1": 11,
-            "ending2": 11,
-            "chapter2": 3,
-            "ending3": 11,
-            "ending4": 11,
-            "ending5": 11,
-            "chapter3": 4,
-            "ending6": 11,
-            "ending7": 11,
-            "chapter4": 5,
-            "ending8": 11,
-            "ending9": 11
-        };
-
-        let currentNode = "opening";
-
-        function render(nodeId) {
-            const node = storyData[nodeId];
-            if (!node) return;
-
-            currentNode = nodeId;
-
-            // 更新章节标题
-            document.getElementById("chapterTitle").textContent = node.chapterTitle;
-
-            // 更新结局相关显示
-            const endingBadge = document.getElementById("endingBadge");
-            const endingTitle = document.getElementById("endingTitle");
-
-            if (node.isEnding) {
-                endingBadge.style.display = "inline-block";
-                endingTitle.style.display = "block";
-                endingTitle.textContent = "· " + node.endingTitle + " ·";
-            } else {
-                endingBadge.style.display = "none";
-                endingTitle.style.display = "none";
-            }
-
-            // 更新故事内容
-            document.getElementById("storyContent").textContent = node.content;
-
-            // 更新选项按钮
-            const choicesContainer = document.getElementById("choicesContainer");
-            choicesContainer.innerHTML = "";
-
-            node.choices.forEach(choice => {
-                const button = document.createElement("button");
-                button.className = "choice-btn";
-                button.textContent = choice.text;
-                button.onclick = () => render(choice.next);
-                choicesContainer.appendChild(button);
-            });
-
-            // 更新进度条
-            const progress = (nodePath[nodeId] || 1) / 11 * 100;
-            document.getElementById("progressFill").style.width = progress + "%";
-
-            // 滚动到顶部
-            window.scrollTo(0, 0);
-        }
-
-        // 初始化游戏
-        render("opening");
+"main_secret_1b": { chapterTitle: "主线 · 低调度日", content: "你思忖道：「如今郡王虽未派人来捉，但潭州往来客人众多，万一有人认出，必是大祸。」\n\n你与秀秀商议，关张歇业，只在后屋接些零活，平日闭门不出。\n\n秀秀道：「崔郎说的是，小心驶得万年船。」\n\n如此过了半年，倒也平安无事。这日你出门买米，却在街角撞见一个熟人。", choices: [{ text: "上前叙话", next: "main_secret_1c" }, { text: "转身便走", next: "main_secret_1d" }] },
+
+"main_secret_1c": { chapterTitle: "主线 · 叙话惹祸", content: "你上前与熟人叙话，却不知此人正是郡王府的眼线。\n\n三日后，官差包围了你的住所。\n\n你与秀秀被捉回临安，郡王大怒，当场处死。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"main_secret_1d": { chapterTitle: "主线 · 谨慎保身", content: "你转身便走，匆匆回家。\n\n秀秀道：「崔郎为何如此慌张？」\n\n你道：「方才撞见一个熟人，怕是认得我。」\n\n秀秀叹道：「这等担惊受怕的日子，何时是个头？」\n\n你又住了半年，终究放心不下，收拾细软，前往成都。", choices: [{ text: "前往成都", next: "branch_d_2" }] },
+
+"main_secret_1": { chapterTitle: "主线 · 郭排军撞破", content: "忽一日方早开门，见两个着皂衫的，一似虞候府干打扮，入来铺里坐地，问道：「本官听得说有个行在崔待诏，教请过来做生活。」\n\n你分付了家中，随这两个人到湘潭县路上来。便将你到宅里相见官人，承揽了玉作生活。\n\n回路归家，正行间，只见一个汉子，头上带个竹丝笠儿，穿着一领白段子两上领布衫，挑着一个高肩担儿，正面来。\n\n把你一看，你却不见这汉面貌，这个人却见你，从后大踏步尾着你来。\n\n这人姓郭名立，叫做郭排军，却是郡王府中一个排军，从小伏侍郡王。\n\n他一路尾着你到家，正见秀秀坐在柜身子里，便撞破他们道：「崔大夫多时不见，你却在这里。秀秀养娘他如何也在这里？」\n\n当时吓杀你夫妻两个。", choices: [{ text: "请住郭排军，安排酒来请他", next: "main_secret_2" }, { text: "杀死郭排军灭口", next: "branch_c_1" }, { text: "倾尽家财贿赂郭排军", next: "branch_e_1" }, { text: "连夜逃亡，远走高飞", next: "branch_d_1" }] },
+
+"main_secret_2": { chapterTitle: "主线 · 告密", content: "当下夫妻请住郭排军，安排酒来请他。\n\n分付道：「你到府中千万莫说与郡王知道！」\n\n郭排军道：「郡王怎知得你两个在这里。我没事，却说甚么。」\n\n当下酬谢了出门。\n\n回到府中，参见郡王，纳了回书。看着郡王道：「郭立前日下书回，打潭州过，却见两个人在那里住。」\n\n郡王问：「是谁？」\n\n郭立道：「见秀秀养娘并崔待诏两个，请郭立吃了酒食，教休来府中说知。」\n\n郡王听说便道：「叵耐这两个做出这事来，却如何直走到那里？」\n\n郡王教干办去分付临安府，即时差一个缉捕使臣，带着做公的，径来湖南潭州府。\n\n不两月，捉将两个来，解到府中。", choices: [{ text: "继续", next: "main_secret_3" }] },
+
+"main_secret_3": { chapterTitle: "主线 · 公堂受审", content: "报与郡王得知，即时升厅。\n\n郡王好生焦躁，左手去壁牙上取下「小青」，右手一掣，掣刀在手，睁起杀番人的眼儿，咬得牙齿剥剥地响。\n\n当时诃杀夫人，在屏风背后道：「郡王，这里是帝辇之下，不比边庭上面，若有罪过，只消解去临安府施行，如何胡乱凯得人？」\n\n郡王听说道：「叵耐这两个畜生逃走，今日捉将来，我恼了，如何不凯？既然夫人来劝，且捉秀秀入府后花园去。把崔宁解去临安府断治。」\n\n解这崔宁到临安府，一一从头供说：「自从当夜遗漏，来到府中，都搬尽了，只见秀秀养娘从廊下出来，揪住崔宁道：『你如何安手在我怀中？若不依我口，教坏了你！』要共崔宁逃走。崔宁不得已，只得与他同走。只此是实。」\n\n临安府把文案呈上郡王，郡王是个刚直的人，便道：「既然恁地，宽了崔宁。且与从轻断治。崔宁不合在逃，罪杖，发还建康府居住。」\n\n当下差人押送。", choices: [{ text: "忍受判决，发配建康", next: "main_secret_4" }, { text: "贿赂差役，半途逃跑", next: "branch_f_1" }, { text: "在临安府击鼓鸣冤", next: "branch_g_1" }] },
+
+"main_secret_4": { chapterTitle: "主线 · 鬼魂追随", content: "你方出北关门，到鹅项头，见一顶轿儿，两个人抬着，从后面叫：「崔待诏，且不得去！」\n\n你认得像是秀秀的声音，赶将来又不知恁地？心下好生疑惑！伤弓之鸟，不敢揽事，且低着头只顾走。\n\n只见后面赶将上来，歇了轿子，一个妇人走出来，不是别人，便是秀秀。\n\n秀秀道：「崔待诏，你如今去建康府，我却如何？」\n\n你道：「却是怎地好？」\n\n秀秀道：「自从解你去临安府断罪，把我捉入后花园，打了三十竹篦，遂便赶我出来。我知道你建康府去，赶将来同你去。」\n\n你道：「恁地却好。」\n\n讨了船，直到建康府。", choices: [{ text: "接受秀秀，继续做夫妻", next: "main_ghost_1" }, { text: "惊恐拒绝，请道士驱鬼", next: "branch_h_1" }, { text: "主动自尽，与秀秀同赴黄泉", next: "ending_13" }] },
+
+"main_ghost_1": { chapterTitle: "主线 · 建康同居", content: "再说你两口在建康居住，既是问断了，如今也不怕有人撞见，依旧开个碾玉作铺。\n\n浑家道：「我两口却在这里住得好，只是我家爹妈自从我和你逃去潭州，两个老的吃了些苦。当日捉我入府时，两个去寻死觅活，今日也好教人去行在取我爹妈来这里同住。」\n\n你道：「最好。」\n\n便教人来行在取他丈人丈母，那去取老儿的人，到临安府寻见他住处，问他邻舍。\n\n邻舍道：「莫说！他有个花枝也似女儿，献在一个奢遮去处。这个女儿不受福德，却跟一个碾玉的待诏逃走了。前日从湖南潭州捉将回来，送在临安府吃官司。那女儿吃郡王捉进后花园里去。老夫妻见女儿捉去，就当下寻死觅活，至今不知下落。」\n\n来人见说，再回建康府来，兀自未到家。\n\n两个老的且自来到这里了。两个老人道：「却生受你，我不知你们在建康住，教我寻来寻去，直到这里。」\n\n其时四口同住，不在话下。", choices: [{ text: "继续", next: "main_ghost_2" }, { text: "询问岳父岳母一路辛苦", next: "main_ghost_1b" }] },
+
+"main_ghost_1b": { chapterTitle: "主线 · 亲情团聚", content: "你道：「岳父岳母一路辛苦，小婿不孝，让您二老受惊了。」\n\n璩公道：「事已至此，说也无用。只盼你们夫妻和睦，便是我们的安慰。」\n\n秀秀听罢，泪如雨下。\n\n当夜，你与秀秀商议，决定从此安分守己，不再惹事。\n\n然而树欲静而风不止。", choices: [{ text: "继续", next: "main_ghost_2" }] },
+
+"main_ghost_2": { chapterTitle: "主线 · 遭际御前", content: "且说朝廷官里，一日到偏殿看玩宝器，拿起这玉观音来看，这个观音身上，当时有一个玉铃儿，失手脱下。\n\n即时问近侍官员：「却如何修理得？」\n\n看到底下，下面碾着三字：「崔宁造。」\n\n敕下郡王府，宣取碾玉匠崔宁。即时使人去建康，取得崔宁到行在歇泊了。\n\n当时宣你见驾，将这玉观音教他领去，用心整理。你谢了恩，寻一块一般的玉，碾一个铃儿，接住了，御前交纳。\n\n破分请给养了崔宁，令只在行在居住。\n\n你道：「我今日遭际御前，争得气。再来清湖河下寻间屋儿开个碾玉铺，须不怕你们撞见！」", choices: [{ text: "开铺营业", next: "main_ghost_3" }, { text: "暂缓开铺，静观其变", next: "main_ghost_2b" }] },
+
+"main_ghost_2b": { chapterTitle: "主线 · 静观其变", content: "你思忖道：「如今虽遭际御前，但郡王那边仍未释怀，不如暂缓开铺，待风头过去再说。」\n\n秀秀道：「崔郎说的是，小心为上。」\n\n你在行在住了数月，未见动静，这才放心，在清湖河下寻间屋儿开个碾玉铺。\n\n可煞事有斗巧，方才开得铺三两日，一个汉子从外面过来，就是那郭排军。", choices: [{ text: "继续", next: "main_ghost_3" }] },
+
+"main_ghost_3": { chapterTitle: "主线 · 再遇郭排军", content: "郭排军见了崔待诏，便道：「崔大夫恭喜了！你却在这里住？」\n\n抬起头来，看柜身里却立着崔待诏的浑家。郭排军吃了一惊，拽开脚步就走。\n\n你即时赶上扯住。郭排军没奈何，只得与你回来，到家中坐地。\n\n浑家与他相见了，便问：「郭排军，前者我好意留你吃酒，你却归来说与郡王，坏了我两个的好事。今日遭际御前，却不怕你去说。」\n\n郭排军吃他相问得无言可答，只道得一声「得罪！」\n\n相别了，便来到府里，对着郡王道：「有鬼！」\n\n郡王道：「这汉则甚？」\n\n郭立道：「告恩王，有鬼！方才打清湖河下过，见崔宁开个碾玉铺，却见柜身里一个妇女，便是秀秀养娘。」\n\n郡王焦躁道：「又来胡说！秀秀被我打杀了，埋在后花园，你须也看见，如何又在那里？」", choices: [{ text: "继续", next: "main_ghost_4" }, { text: "带秀秀离开临安", next: "main_ghost_3b" }] },
+
+"main_ghost_3b": { chapterTitle: "主线 · 逃离临安", content: "你听得郭排军去郡王府报信，心中大惊。\n\n你道：「浑家，那郭排军去报信了，我们须得立刻离开！」\n\n秀秀道：「崔郎说的是。」\n\n当夜，你们收拾细软，连夜离开临安，前往建康。\n\n然而，你能逃得过这宿命吗？", choices: [{ text: "继续", next: "main_ghost_5" }] },
+
+"main_ghost_4": { chapterTitle: "主线 · 军令状", content: "郭立道：「告恩王，怎敢取笑！怕恩王不信，勒下军令状了去。」\n\n郡王收了军令状，叫两个当直的轿番，抬一顶轿子，教：「取这妮子来。若真个在，把来凯取一刀；若不在，郭立！你须替他凯取一刀！」\n\n郭立同两个轿番来取秀秀。\n\n三个一径来到你家里，那秀秀兀自在柜身里坐地。\n\n郭排军道：「小娘子，郡王钧旨，教来取你则个。」\n\n秀秀道：「既如此，你们少等，待我梳洗了同去。」\n\n即时入去梳洗，换了衣服出来，上了轿，分付了丈夫。\n\n两个轿番便抬着，径到府前。\n\n郭立先入去，郡王正在厅上等待。郭立唱了喏，道：「已取到秀秀养娘。」\n\n郡王道：「着他入来！」\n\n掀起帘子看一看，便是一桶水倾在身上，开着口，则合不得，就轿子里不见了秀秀养娘。", choices: [{ text: "继续", next: "main_ghost_5" }] },
+
+"main_ghost_5": { chapterTitle: "主线 · 最终结局", content: "郡王焦躁，把郭立打了五十背花棒。\n\n你听得说浑家是鬼，到家中问丈人丈母。两个面面厮觑，走出门，看着清湖河里，扑通地都跳下水去了。\n\n原来当时打杀秀秀时，两个老的听得说，便跳在河里，已自死了。这两个也是鬼。\n\n你到家中，没情没绪，走进房中，只见浑家坐在床上。\n\n你道：「告姐姐，饶我性命！」\n\n秀秀道：「我因为你，吃郡王打死了，埋在后花园里。却恨郭排军多口，今日已报了冤仇，郡王已将他打了五十背花棒。如今都知道我是鬼，容身不得了。」\n\n道罢起身，双手揪住你，叫得一声，匹然倒地。\n\n邻舍都来看时，只见：两部脉尽总皆沉，一命已归黄壤下。\n\n你也被扯去，和父母四个，一块儿做鬼去了。\n\n后人评论得好：咸安王捺不下烈火性，郭排军禁不住闲磕牙；璩秀娘舍不得生眷属，崔待诏撇不脱鬼冤家。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_13": { chapterTitle: "结局", endingTitle: "【黄泉相约】", isEnding: true, content: "你看着秀秀苍白的面容，忽然明白了一切。若她已死，你独活于世又有何意义？\n\n「秀秀，」你轻声说，「此生负你，来世再还。」\n\n说罢，你一头撞向路边的石碑，鲜血迸溅。押送的官差大惊失色，慌忙来救，却已来不及。\n\n你的魂魄飘起，看见秀秀含笑而来，牵起你的手。两人携手走向阴间。\n\n阎王殿上，判官翻看生死簿，叹道：「崔宁秀秀，情真意切，感人至深。判二人来世为夫妻，白头偕老。」", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_c_1": { chapterTitle: "支线三 · 血债血偿", content: "你心中暗定主意，假意留郭排军吃饭，搬出家中最好的酒菜。\n\n郭排军也不疑有他，开怀暢饮。你趁他不注意，在酒中下了蒙汗药。\n\n三杯两盏过后，郭排军眼神迷离，忽然捂住胸口，七窍流血，倒在桌上气绝身亡。\n\n你与秀秀连夜将尸体埋在后院。\n\n然而纸包不住火。三日后，郭排军失踪的消息传开，官府派人四处查访。", choices: [{ text: "弃铺逃亡，远走海南", next: "branch_c_2a" }, { text: "贿赂捕快，赌他不会深究", next: "ending_5" }] },
+
+"branch_c_2a": { chapterTitle: "支线三 · 血债血偿（第二回合）", content: "当夜，你们收拾细软，连夜逃离潭州，逃至海南岛。\n\n这里瘴气弥漫，语言不通。秀秀水土不服，染上瘴气，病倒在床。\n\n你四处求医问药，盘缠却日渐减少。\n\n这日你在深山采药，遇上一伙匪徒。匪首打量你一番，冷笑道：「看你这细皮嫩肉的，不如加入我们，劫富济贫，岂不快活？」", choices: [{ text: "卖身为奴，换取秀秀的医药费", next: "ending_6" }, { text: "拼死一搏，与匪徒搏斗", next: "ending_7" }] },
+
+"ending_5": { chapterTitle: "结局", endingTitle: "【漏网之鱼】", isEnding: true, content: "你取出五十两银子，悄悄塞给前来查访的捕快。\n\n捕快掂了掂银子，意味深长地看了你一眼：「崔师傅，郭排军此人，我从未见过。」\n\n捕快收钱后离去。你们保全了性命。\n\n然而从当夜开始，怪事频发。三更时分，后院常有异响。秀秀夜夜噩梦，梦中总见郭排军七窍流血，向她索命。\n\n三年后的一个雨夜，你们双双疯癫，投河自尽。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_6": { chapterTitle: "结局", endingTitle: "【天涯苦命】", isEnding: true, content: "你咬牙跪下：「求大爷救我娘子一命，小人愿卖身为奴！」\n\n匪首大笑：「好一个有情有义的汉子。罢了，我借你银子，十年为期，若还不上，你便来山寨为奴。」\n\n你被卖到富户家中为奴，受尽苦楚。秀秀在山脚租了间茅屋，每日刺绣换钱，盼着赎你回来。\n\n十年光阴弹指过。秀秀终于攒够了银子，将你赎回。\n\n重逢那日，你已两鬓斑白，秀秀也青春不再。二人相拥而泣。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_7": { chapterTitle: "结局", endingTitle: "【法场同死】", isEnding: true, content: "你怒目圆睁，拔出腰刀：「我崔宁堂堂男儿，岂能与盗贼为伍！」\n\n匪徒一拥而上，你拼死搏斗，终究寡不敌众，被生擒活捉。\n\n匪首将你绑送官府，官府判你抢劫杀人罪，秋后问斩。\n\n秀秀听闻消息，赶到狱中探你。隔着牢门，你们相视无言，唯有泪千行。\n\n刑场之上，你与秀秀双双问斩。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_d_1": { chapterTitle: "支线四 · 蜀中避难（第一回合）", content: "你思前想后，觉得潭州离临安还是太近。\n\n你将心中所想告知秀秀。秀秀点头：「崔郎说的是。不如我们去四川，那里山高皇帝远，谁认得我们？」\n\n当夜，你们收拾细软，连夜离开潭州。经湖北入川，一路跋山涉水，终于抵达成都府。\n\n你们在锦江边租了间铺面，改了姓名，开了一家玉器铺。\n\n因你们手艺精湛，待人诚恳，生意日渐兴隆。三年后，你们买下了铺面，还在城西置了处宅院。\n\n秀秀产下一子，取名王念安，寓意平安度日。", choices: [{ text: "孩子七岁时", next: "branch_d_2" }] },
+
+"branch_d_2": { chapterTitle: "支线四 · 蜀中避难（第二回合）", content: "七年光阴转瞬即逝。念安七岁那年中秋，你们一家人在院中赏月，其乐融融。\n\n忽有一临安商人路过成都，进铺买玉器。商人见了你，先是一愣，随即笑道：「这位师傅好面熟，莫不是在临安府做过活的崔待诏？」\n\n你心头一紧，面上却不动声色：「客官认错人了，小人姓王，成都人氏。」\n\n商人将信将疑，临走时意味深长地说：「王师傅这手艺，倒真与临安崔待诏有七分相似。」", choices: [{ text: "追上商人，用重金贿赂，求他闭嘴", next: "ending_8" }, { text: "与秀秀商量后，主动去官府自首", next: "ending_9" }] },
+
+"ending_8": { chapterTitle: "结局", endingTitle: "【破财平安】", isEnding: true, content: "你追上商人，将他请进酒楼，取出二百两银子：「还望客官守口如瓶，小人全家感激不尽。」\n\n商人见钱眼开，满口答应。\n\n二十年后，念安高中进士，授官成都府尹。你们享尽天伦之乐，八十高龄寿终正寝。\n\n临终前，你握着秀秀的手：「娘子，此生无憾。」", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_9": { chapterTitle: "结局", endingTitle: "【沉冤得雪】", isEnding: true, content: "你与秀秀彻夜未眠，商议至天明。\n\n秀秀含泪道：「崔郎，这些年我东躲西藏，累了。不如去官府自首，是生是死，听天由命。」\n\n你们主动前往成都府衙，击鼓鸣冤，将当年郡王许婚、火灾逃难、郭排军勒索等事由一一禀明。\n\n府尹听罢，沉吟良久：「此事情有可原。」\n\n最终府尹判你们无罪，但需罚金三百两。\n\n后来你们安享晚年，寿终正寝。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_e_1": { chapterTitle: "支线五 · 散财消灾（第一回合）", content: "你思前想后，终究不敢杀人，也不敢远行。唯今之计，只有破财免灾。\n\n你赔上笑脸，将郭排军请进内堂，取出家中全部积蓄——整整三百两银子，双手奉上。\n\n「郭大哥，此事还请通融。这些银子，就当是小人请郭大哥喝酒的。」\n\n郭排军眼睛一亮，掂了掂银子，满意地点头：「崔师傅是个明白人。今日我从未到过潭州。」\n\n郭排军收钱离去。你与秀秀才松了一口气，可看着空荡荡的钱箱，秀秀眼圈红了。", choices: [{ text: "安慰秀秀，从头再来", next: "branch_e_2" }] },
+
+"branch_e_2": { chapterTitle: "支线五 · 散财消灾（第二回合）", content: "家财散尽，铺子难以为继，你们只得搬到城郊，租了间茅屋度日。\n\n你接些零活，秀秀替人刺绣，勉强糊口。生活虽苦，夫妻二人却相亲相爱。\n\n然而好景不长。一年后，郭排军忽然又登门。他身穿崭新绸衣，手持折扇，一脸横肉。\n\n「崔师傅，近来可好？」郭排军皮笑肉不笑，「不瞒你说，上次那银子，小弟赌钱输光了。如今手头紧，想再借二百两，不知崔师傅可否通融？」", choices: [{ text: "忍痛借高利贷凑钱，息事宁人", next: "branch_e_3" }, { text: "怒斥郭排军贪得无厌，扬言报官", next: "ending_10" }] },
+
+"branch_e_3": { chapterTitle: "支线五 · 散财消灾（第三回合）", content: "你咬牙道：「郭大哥稍候，我去凑凑。」\n\n你签下卖身契，借了高利贷。郭排军收钱后扬长而去。\n\n债主三日一来，五日一去，逼债之声不绝于耳。\n\n半年后，你们已被逼得走投无路。秀秀整日以泪洗面，你愁白了头发。\n\n这日郭排军第三次登门，见家徒四壁，冷笑一声：「崔师傅这般光景，怕是无钱还债了。不如这样——你去偷去抢，弄些银两来还我，如何？」", choices: [{ text: "忍无可忍，与郭排军同归于尽", next: "ending_11" }, { text: "秀秀趁夜去富户家偷窃还债，被当场抓获", next: "ending_12" }] },
+
+"ending_10": { chapterTitle: "结局", endingTitle: "【玉石俱焚】", isEnding: true, content: "你怒从心头起，一掌拍在桌上：「郭排军！我倾家荡产贿赂你，你竟得寸进尺！你若再纠缠，我便去官府告你勒索！」\n\n郭排军脸色一变，随即冷笑：「好！好！好！崔宁，我看你能硬气几时！」\n\n郭排军摔门而去，回临安告密。郡王派兵将你们捉回，当场处死。\n\n法场之上，你们相视而笑。秀秀道：「崔郎，此生虽短，能与君共度，秀秀无憾。」", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_11": { chapterTitle: "结局", endingTitle: "【血溅三尺】", isEnding: true, content: "你眼中闪过狠厉之色：「郭排军，这是最后一次！」\n\n你约郭排军在城外破庙见面，袖中藏刀。\n\n郭排军如约而至，伸手来拿银子。你拔出刀，一刀刺入他胸膛。\n\n你也自刎而死，倒在郭排军身旁。\n\n秀秀在城外等到天黑，不见你归来，心中明白，赶到破庙时，只见两具冰冷的尸体。\n\n秀秀抚尸痛哭，当夜投河自尽。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_12": { chapterTitle: "结局", endingTitle: "【妻陷囹圄】", isEnding: true, content: "秀秀咬了咬牙：「崔郎，我去偷些财物，还了债，咱们远走高飞。」\n\n当夜，秀秀潜入城中一富户家中，却被家丁当场抓获。富户将秀秀送交官府，官府判秀秀盗窃罪，关入大牢。\n\n你去狱中探视，隔着牢门，秀秀容颜憔悴，却强颜欢笑：「崔郎，莫要为我操心。你保重身体。」\n\n你泪如雨下：「娘子，我定要救你出来！」\n\n你为救秀秀，卖身为奴，受尽苦楚。三年后，秀秀在狱中病逝，你得知消息，吐血而亡。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_f_1": { chapterTitle: "支线六 · 再逃江南（第一回合）", content: "你贿赂差役，逃往福建泉州。\n\n途中梦见秀秀血泪交流，说她并没有死，也在泉州。\n\n你心中一动，加快脚步。", choices: [{ text: "在泉州街头寻找", next: "branch_f_2" }] },
+
+"branch_f_2": { chapterTitle: "支线六 · 再逃江南（第二回合）", content: "你在泉州街头寻到秀秀——竟是真人！\n\n原来郡王那日只打了她二十杖便逐出，她逃到南方。\n\n秀秀看见你，惊喜交加，泪水夺眶而出。", choices: [{ text: "夫妻相认，隐姓埋名做生意", next: "ending_17" }, { text: "怀疑秀秀是鬼，请道士验证", next: "ending_18" }] },
+
+"ending_17": { chapterTitle: "结局", endingTitle: "【破镜重圆】", isEnding: true, content: "你们夫妻相认，隐姓埋名做生意。\n\n日子虽不富贵，却也安稳。\n\n二十年后，你们白发苍苍，携手离世。\n\n后人评：有情人终成眷属。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_18": { chapterTitle: "结局", endingTitle: "【疑心成恨】", isEnding: true, content: "你怀疑秀秀是鬼，请道士验证。\n\n秀秀被符咒所伤，暴露鬼身，消散于天地之间。\n\n你悔恨万分，投河自尽。\n\n后人评：疑心太重，终成永憾。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_g_1": { chapterTitle: "支线七 · 公堂鸣冤（第一回合）", content: "你在临安府击鼓鸣冤，告郡王私设刑堂，打死秀秀。\n\n府尹畏惧郡王权势，反将你关押，判其诬告。\n\n你在狱中受尽折磨。", choices: [{ text: "狱中", next: "branch_g_2" }] },
+
+"branch_g_2": { chapterTitle: "支线七 · 公堂鸣冤（第二回合）", content: "狱中，你得知秀秀鬼魂已缠上郡王府，郡王日夜做噩梦。\n\n你面临抉择：", choices: [{ text: "狱中自尽，魂魄与秀秀相会，共同到阴司告状", next: "ending_19" }, { text: "熬刑不过，招认秀秀勾引自己，是自己拐带", next: "ending_20" }] },
+
+"ending_19": { chapterTitle: "结局", endingTitle: "【冥府鸣冤】", isEnding: true, content: "你在狱中自尽，魂魄与秀秀相会。\n\n你们共同到阴司告状。阎王判郡王减寿，罚为畜生；你与秀秀来世指腹为婚。\n\n后人评：虽死犹荣，终得昭雪。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"ending_20": { chapterTitle: "结局", endingTitle: "【卖妻求活】", isEnding: true, content: "你熬刑不过，招认秀秀勾引自己，是你拐带。\n\n你被释放，但终生被世上人唾骂，孤苦而死。\n\n秀秀的鬼魂在窗外哭了一夜，从此消散。\n\n后人评：卖妻求活，不如一死。", choices: [{ text: "重新开始", next: "opening" }] },
+
+"branch_h_1": { chapterTitle: "支线八 · 人鬼殊途（第一回合）", content: "你请来道士张天师符箓，贴于门上。\n\n秀秀无法入内，在门外哭嚎：「你竟如此狠心！」\n\n你听见哭声，心中不忍。", choices: [{ text: "揭下符咒，开门让秀秀进来", next: "main_ghost_5" }, { text: "闭门不出，任由道士收走秀秀", next: "ending_21" }] },
+
+"ending_21": { chapterTitle: "结局", endingTitle: "【孤魂永隔】", isEnding: true, content: "你闭门不出，任由道士收走秀秀。\n\n秀秀被收入葫芦，埋入地下。\n\n你被押至建康，孤身一人度过余生。每当夜深人静，总能听见窗外有女子哭泣。\n\n你终身未娶，晚年常梦见秀秀，醒来时枕巾已湿。\n\n后人评：人鬼殊途，终成永憾。", choices: [{ text: "重新开始", next: "opening" }] }
+};
+
+const nodePath = {"opening":1,"chapter1":2,"branch_a_1":3,"branch_a_2":4,"branch_b_1":3,"branch_b_2":4,"main_route_1":3,"main_secret_1b":4,"main_secret_1c":5,"main_secret_1d":5,"main_secret_1":4,"main_secret_2":5,"main_secret_3":6,"main_secret_4":7,"main_ghost_1":8,"main_ghost_1b":9,"main_ghost_2":9,"main_ghost_2b":10,"main_ghost_3":10,"main_ghost_3b":11,"main_ghost_4":11,"main_ghost_5":12,"branch_c_1":5,"branch_c_2a":6,"branch_d_1":4,"branch_d_2":5,"branch_e_1":5,"branch_e_2":6,"branch_e_3":7,"branch_f_1":6,"branch_f_2":7,"branch_g_1":6,"branch_g_2":7,"branch_h_1":7,"ending_1":13,"ending_2":13,"ending_3":13,"ending_4":13,"ending_5":13,"ending_6":13,"ending_7":13,"ending_8":13,"ending_9":13,"ending_10":13,"ending_11":13,"ending_12":13,"ending_13":13,"ending_17":13,"ending_18":13,"ending_19":13,"ending_20":13,"ending_21":13};
+
+function render(nodeId) {
+    const node = storyData[nodeId];
+    if (!node) return;
+    document.getElementById("chapterTitle").innerHTML = node.chapterTitle;
+    const endingBadge = document.getElementById("endingBadge");
+    const endingTitle = document.getElementById("endingTitle");
+    if (node.isEnding) {
+        endingBadge.style.display = "inline-block";
+        endingTitle.style.display = "block";
+        endingTitle.textContent = node.endingTitle;
+    } else {
+        endingBadge.style.display = "none";
+        endingTitle.style.display = "none";
+    }
+    document.getElementById("storyContent").textContent = node.content;
+    const choicesContainer = document.getElementById("choicesContainer");
+    choicesContainer.innerHTML = "";
+    node.choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.className = "choice-btn";
+        button.textContent = choice.text;
+        button.onclick = () => render(choice.next);
+        choicesContainer.appendChild(button);
+    });
+    const progress = (nodePath[nodeId] || 1) / 13 * 100;
+    document.getElementById("progressFill").style.width = progress + "%";
+    window.scrollTo(0, 0);
+}
+render("opening");
     </script>
 </body>
 </html>
